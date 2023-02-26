@@ -16,10 +16,7 @@ program tunnel
     allocate(En(0:1000))
     
     do n=0,250           
-    En(n) = 1+n*0.1        
-    
-    k=sqrt(2*m*En(n)/(h**2))    
-    ! k=sqrt(2*m*E/(h**2))      
+    En(n) = 1+n*0.1           
     
     do i=0,1000
         x(i) = i*0.01
@@ -28,7 +25,10 @@ program tunnel
             V(i) = 9
         endif
     enddo
-    
+
+    k=sqrt( 2*m*(En(n)-v(1))/(h**2))
+    ! k=sqrt(2*m*( E-v(1) )/(h**2)) 
+
     psi(0)=1
     psi(1)=exp(-1*iota*k*x(1))
     
