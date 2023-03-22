@@ -1,6 +1,6 @@
 Program Hello
 implicit none
-integer::i,n=100000
+integer::i,n=10000
 real,dimension(:),allocatable::x
 real::h,a,b,sum=0 
 allocate(x(n))

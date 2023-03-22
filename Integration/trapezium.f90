@@ -1,15 +1,15 @@
 Program Hello
 implicit none
-integer::i,n=100
-real,dimension(:),allocatable::x
-real::h,a,b,sum=0,ans
+integer::i,n=10
+real(kind=8),dimension(:),allocatable::x
+real(kind=8)::h,a,b,sum=0,ans
 allocate(x(n))
-a=2 
-b=3
+a=2.0 
+b=3.0
 
-h=(b-a)/(n)
+h=(b-a)/real(n)
 do i=1,n-1
-x(i) = a+(i)*h 
+x(i) = a+i*h 
 sum = sum + fx(x(i))
 enddo
 
@@ -17,9 +17,9 @@ ans=h*( (fx(a) +fx(b))/2 + sum)
 print* , ans
 
 contains 
-real function fx(a)
-    real::a
-    fx=a
+real(kind=8) function fx(a)
+    real(kind=8)::a
+    fx= exp(a)
 end function fx
 
 End Program Hello
