@@ -29,13 +29,13 @@ program ha
     psi(0,1)=0
     psi(nx,1)=0
     do i=1,nx-1
-        psi(i,1) = psi(i,0) + iota*dt*(((psi(i+1,0)+psi(i-1,0)-2*psi(i,0))/(2*(dx**2)))/(2*m) - v(i)*psi(i,0))
+        psi(i,1) = psi(i,0) + iota*dt*(((psi(i+1,0)+psi(i-1,0)-2*psi(i,0))/(1*(dx**2)))/(2*m) - v(i)*psi(i,0))
     enddo
     do t=1,nt-1
         psi(0,t)=0
         psi(nx,t)=0
         do i=1,nx-1
-            psi(i,t+1) = psi(i,t-1) + 2*iota*dt*(((psi(i+1,t)+psi(i-1,t)-2*psi(i,t))/(2*(dx**2)))/(2*m) - v(i)*psi(i,t))
+            psi(i,t+1) = psi(i,t-1) + 2*iota*dt*(((psi(i+1,t)+psi(i-1,t)-2*psi(i,t))/(1*(dx**2)))/(2*m) - v(i)*psi(i,t))
         enddo
     enddo
     ! do i=0,nx
