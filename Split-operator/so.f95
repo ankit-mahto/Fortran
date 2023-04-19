@@ -51,7 +51,7 @@ do i=1,N
 psi_t1(i) = exp(-iota*dt*arr_v(i)/2)*psi1part(i)
 enddo
 
-if(j .eq. 4500) then
+if(j .eq. 3200) then
 do i=1,N
 write(10,*) arr_x(i), (abs(psi_t1(i)))**2
 enddo
