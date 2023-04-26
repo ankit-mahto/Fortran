@@ -14,9 +14,9 @@ program hello
     use q1
     implicit none
     l=nx*dx
-    dk = 2*pi/l
+    dk = 2*pi/nx
     pmax = pi/dx
-    open(1,file='out.txt')
+    open(1,file='out1.txt')
     allocate(x(0:nx),k(0:nx),v(0:nx),phi(0:nx),psip(0:nx),psidp(0:nx),psi(0:nx,0:nt),d2psi(0:nx))
     do i =0,nx
         x(i) = xmin + i*dx
@@ -41,9 +41,11 @@ program hello
         enddo
         phi(j) = phi(j) * (1/sqrt(real(nx)))
         enddo 
+
         do i=1,nx
         psidp(i)=phi(i)*exp(-iota*k(i)*k(i)*dt/(2*m))
         enddo
+        
         do j=1,nx
         d2psi(j) = 0
         do i=1,nx
