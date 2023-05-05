@@ -11,13 +11,18 @@ program wave
     implicit none
     allocate(psi(0:1000,0:300),x(0:1000))
     open(1,file='psi.txt')
+
+    !loop for initialising psi at t=0
     do i=0,1000
         x(i) = i*dx
         psi(i,0)= ((2*20/pi)**0.25) * exp(-((x(i)-5.0)**2)/(2*0.1*0.1))*exp(z*20*x(i))
     enddo
+
+    !time loop
     do j=0,299
-        psi(0,j+1)=psi(0,0)
-        psi(1000,j+1)=psi(1000,0)
+        psi(0,j+1)=psi(0,0) 
+        psi(1000,j+1)=psi(1000,0) 
+        !position loop
         do i=1,999
             s1 = z*(psi(i+1,j)+psi(i-1,j)-2*psi(i,j))/(2*dx*dx)
             s2 = z*(psi(i+1,j)+psi(i-1,j)-2*(psi(i,j)+dt*s1/2))/(2*dx*dx)

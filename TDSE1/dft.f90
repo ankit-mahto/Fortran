@@ -9,7 +9,7 @@ module ft
     integer(kind=8)::i,j,t,nt=5000,nx=256
     character(len= 1024)::number
 end module ft
-
+!this program uses finite difference method for calculating kinetic part
 program ha
     use ft
     implicit none
