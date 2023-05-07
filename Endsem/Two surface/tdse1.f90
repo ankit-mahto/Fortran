@@ -136,6 +136,7 @@ program tdse
         write(30,*) x(i),abs(psi1(i,600)**2),abs(psi2(i,600)**2)
         write(40,*) x(i),abs(psi1(i,1000)**2),abs(psi2(i,1000)**2)
     enddo
+    print* , psi1(1024,0) , conjg(psi1(1024,0))
 end program tdse
 
 
